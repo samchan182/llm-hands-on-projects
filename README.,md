@@ -1,0 +1,25 @@
+# <Project Name>
+
+A brief, one-line description of what this LLM project does and who it is for.
+
+## Overview
+- Problem: What this project solves in 1–2 sentences.
+- Approach: High-level method (e.g., fine-tuning, RAG, instruction-following, agentic workflows).
+- Outcome: What users can expect (e.g., faster prototyping, domain Q&A, summarization).
+
+## Features
+- <Feature 1> (e.g., Local or cloud inference)
+- <Feature 2> (e.g., RAG with vector store)
+- <Feature 3> (e.g., REST API + CLI)
+- <Feature 4> (e.g., Evaluation/benchmarks)
+
+## Tech Stack
+- Models: <MODEL_IDs or providers (OpenAI, Anthropic, HF Transformers)>
+- Core: <Python, FastAPI/Flask, LangChain/LlamaIndex, PyTorch/TF>
+- Storage: <Vector DB (FAISS/Chroma/PGVector) + optional cache>
+- Infra: <Docker, VS Code Devcontainer, Make>
+
+## Quickstart
+Prerequisites: Python >= 3.10, pip, (optional) Docker, a Hugging Face token or API keys.
+
+Setup:
