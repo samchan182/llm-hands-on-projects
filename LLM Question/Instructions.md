@@ -20,6 +20,17 @@ Ollama Applicaition is like put your coffee machine into active mode (turn on ap
 
 Your python code is like the process / steps of making coffee. To do the specific jobs for you. Ollama is a server running behind, it's the client-server agritecture.
 
-## What are the three attributes in valuating a LLM?
+## Why token is so important in LLM?
+The model cannot see the word as human being. Each sentence need to convert into series of "TOEKN", and convert into numerical representation, to predict the next "word".
 
-## transformers, tokens, context windows, API costs?
+OpenAI provides a "Tokenizer" to understand how tokens is being created by human language. https://platform.openai.com/tokenizer
+
+## What is context window?
+It also called context length, the maximun number of tokens a LLM can process at one time. The short-term memory for the entire LLM's conversation. 
+
+Which is including <u>current prompt</u> + <u>current ouput</u> + previous processed <u>history tokens</u>.
+
+## What is API cost?
+The price you pay for using this LLM, it is paying for the number of tokens being processed, both input tokens and output tokens. 
+
+
