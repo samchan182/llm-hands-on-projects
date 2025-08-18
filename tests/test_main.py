@@ -43,4 +43,4 @@ for chunk in stream:
 # Get Llama 3.2 to answer
 response = ollama.chat(model=MODEL_LLAMA, messages=messages)
 reply = response['message']['content']
-display(Markdown(reply))
+display(Markdown(reply)) 
