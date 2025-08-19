@@ -33,4 +33,9 @@ Which is including <u>current prompt</u> + <u>current ouput</u> + previous proce
 ## What is API cost?
 The price you pay for using this LLM, it is paying for the number of tokens being processed, both input tokens and output tokens. 
 
+# What is relationship between LLM and machine learning?
+Machine learning is a board field of study. In fact, LLM is a specific, advanced type of machine learning model. 
 
+# Why we need to set the System prompt?
+
+# 
