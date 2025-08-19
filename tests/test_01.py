@@ -1,12 +1,17 @@
 """
-The Purpose: Using OpenAI API to generate the webpage content into markdown and JSON
+AI tool for user input and output
 """
 
+'''
+OpenAI and Ollama both are python libraries SDK, serves as clients, talk to AI model by your setting web request
+Also we use "rich" library for formatting in web output
+'''
 # import 
-from dotenv import load_dotenv
-from IPython.display import Markdown, display, update_display
+from dotenv import load_dotenv # load .env file
 from openai import OpenAI
-import ollama
+import ollama # Need to install ollama library
+
+# Can't not resolve means python can not find pacakge. Need to reset python environment
 
 # Contants
 MODEL_GPT = 'gpt-4o-mini'

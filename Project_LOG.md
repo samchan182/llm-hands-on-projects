@@ -38,4 +38,4 @@ Machine learning is a board field of study. In fact, LLM is a specific, advanced
 
 # Why we need to set the System prompt?
 
-# 
+# what is SDK?
