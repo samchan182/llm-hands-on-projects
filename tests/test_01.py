@@ -1,51 +1,34 @@
 """
-AI tool for user input and output
+This is program to output LLM answer by pre-setting question.
+The base model is default GPT-4o-mini.
+The asking question is default "What is bond in financial investment?".
 """
+# import
+from dotenv import load_dotenv # .env in root directory
+from openai import OpenAI 
 
-'''
-OpenAI and Ollama both are python libraries SDK, serves as clients, talk to AI model by your setting web request
-Also we use "rich" library for formatting in web output
-'''
-# import 
-from dotenv import load_dotenv # load .env file
-from openai import OpenAI
-import ollama # Need to install ollama library
+MODEL_GPT = "gpt-4o-mini"
 
-# Can't not resolve means python can not find pacakge. Need to reset python environment
-
-# Contants
-MODEL_GPT = 'gpt-4o-mini'
-MODEL_LLAMA = 'llama3.2'
-
-# Set up the environment
+# OpenAI will verfity once you call 
 load_dotenv()
-openai = OpenAI()
+client = OpenAI()
 
-# Your question input
-question = '''What is bond in financial investment?'''
-
-# prompts
-system_prompt = "You are a helpful technical tutor who answers questions about python code, software engineering, data science and LLMs"
-user_prompt = "Please give a detailed explanation to the following question: " + question
-
-# messages
+# format 
 messages = [
-    {"role": "system", "content": system_prompt},
-    {"role": "user", "content": user_prompt}
+    {"role": "user", "content": "What is bond in financial investment?"}
 ]
 
-# get gpt4o to answer while streaming, also switch to llama
-stream = openai.chat.completions.create(model=MODEL_GPT, messages=messages,stream=True)
-    
-response = ""
-display_handle = display(Markdown(""), display_id=True)
-for chunk in stream:
-    response += chunk.choices[0].delta.content or ''
-    response = response.replace("```","").replace("markdown", "")
-    update_display(Markdown(response), display_id=display_handle.display_id)
+# The respond need to steam word by word for user experience
+# It uses OpenAI python API documentation, stardard format of streaming responses
+stream = client.chat.completions.create(
+    model = MODEL_GPT,
+    messages = messages,
+    stream = True
+) # positional arguments is not allowed
+
+for event in stream:
+    content = event.choices[0].delta.content
+    if content:
+        print(content, end='', flush=True)
 
 
-# Get Llama 3.2 to answer
-response = ollama.chat(model=MODEL_LLAMA, messages=messages)
-reply = response['message']['content']
-display(Markdown(reply)) 
