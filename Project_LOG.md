@@ -6,7 +6,7 @@
 > Document learnings in a Q&A format.
 
 ## Docstrings or Comment?
-Comment is for developer <br>
+Comment is for developer<br>
 Docstrings is for user of this code/function <br>
 Never use __(''')__, it will create unnecessary memory
 
@@ -23,7 +23,7 @@ A .env file is used to store sensitive information like API keys securely. It sh
 3. Direct inference
 
 ## What is Ollama doing behind your local?
-Ollama is like a coffee machine you buy (download), and you put it into your kitchen (local) to make coffee. 
+Ollama is like a coffee machine you buy (download), and you put it into your kitchen (local) to make coffee.
 
 Ollama Applicaition is like put your coffee machine into active mode (turn on application). Now your local become a server. 
 
@@ -42,26 +42,43 @@ Which is including <u>current prompt</u> + <u>current ouput</u> + previous proce
 ## What is API cost?
 The price you pay for using this LLM, it is paying for the number of tokens being processed, both input tokens and output tokens. 
 
-# What is relationship between LLM and machine learning?
+## What is relationship between LLM and machine learning?
 Machine learning is a board field of study. In fact, LLM is a specific, advanced type of machine learning model. 
 
-# Why OpenAI has python SDKs?
+## Why OpenAI has python SDKs?
 Almost every major services provides SDKs (AWS OpenAI Stripe...). For each programming language, they has an API to speak to "raw HTTP", the sending web request with specific formats.  
 
-# Why we need to set the System prompt?
+## Why we need to set the System prompt?
 
-# what is SDK?
+## what is SDKs?
 Software Development Kit. To prevent to 'talk' to the system where you need to build everything from scratch. It gives you some pre-existed works from someone else.
 
-# Difference between commit and contribution in github profile?
-
-# Why we need to setup Anaconda in advance?
-Anaconda is a distribution of python, which is bundled with conda package manager, with many pre-installed packages, for ML/data science. 
-An environment is just a simply folder contains many installed packaged. 
+## Why we need to setup Anaconda in advance?
+Anaconda is a distribution of python, which is bundled with conda package manager, with many pre-installed packages, for ML/data science. An environment is just a simply folder contains many installed packaged. 
 
 When you in (llms) environment, it tells your terminal to <u>use python and package in this particular folder</u>. 
 
 While the (base) is default conda environment. It shows once you install conda. 
-# 
 
+## What's pipeline?
+A set of data processing elements connected in series. Output of one element is the input of next element. 
 
+It's like assembly line in car factory, start wity body shop, next to plaint shop, etc...
+
+## why HuggingFace has pipeline?
+Using machine learning models (especially transformers) involves multiple complex steps that must happen in the correct order.
+
+## Why HuggingFace needs API key for authorization?
+Even though this platform is open-source, but it doesn't mean unlimitted access. And some of the model is huge, with ID limit, the download bandwidth (maximum rate of data transfer) costs will the crash of servers. 
+
+## What is the relationship between Tokenizer and Model?
+Model and tokenizer are technically separate but functionally inseparable. Tokenizer decides what form of data can put into the neural network. Row data (user input) can be transfer into byte-pair, word piece, sentence piece, etc. 
+
+Usually a "Model" release with three files, 
+1. The model weights (the neural network)
+2. The tokenizer (how to convert text to numbers)
+3. The config files (architecture details)
+
+The model can not function without it own specific tokenizer.
+
+## What
