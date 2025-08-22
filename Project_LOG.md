@@ -17,6 +17,11 @@ The only difference is the package installation.
 ## Why use .env file to store API key?
 A .env file is used to store sensitive information like API keys securely. It should be added to .gitignore so it is not included in version control.
 
+## How to make sure your .env file is being ignored by git?
+(base) samchan@chenzisnslaptop llm-hands-on-projects % git check-ignore .env
+
+.env
+
 ## Three ways of using models:
 1. Chat interface
 2. Cloud APIs
@@ -48,15 +53,13 @@ Machine learning is a board field of study. In fact, LLM is a specific, advanced
 ## Why OpenAI has python SDKs?
 Almost every major services provides SDKs (AWS OpenAI Stripe...). For each programming language, they has an API to speak to "raw HTTP", the sending web request with specific formats.  
 
-## Why we need to set the System prompt?
-
 ## what is SDKs?
 Software Development Kit. To prevent to 'talk' to the system where you need to build everything from scratch. It gives you some pre-existed works from someone else.
 
 ## Why we need to setup Anaconda in advance?
 Anaconda is a distribution of python, which is bundled with conda package manager, with many pre-installed packages, for ML/data science. An environment is just a simply folder contains many installed packaged. 
 
-When you in (llms) environment, it tells your terminal to <u>use python and package in this particular folder</u>. 
+When you in (llms) environment, it tells your terminal to <u>use python and package in this particular folder</u>. s
 
 While the (base) is default conda environment. It shows once you install conda. 
 
@@ -65,8 +68,15 @@ A set of data processing elements connected in series. Output of one element is 
 
 It's like assembly line in car factory, start wity body shop, next to plaint shop, etc...
 
-## why HuggingFace has pipeline?
+## Why HuggingFace has pipeline?
 Using machine learning models (especially transformers) involves multiple complex steps that must happen in the correct order.
+
+Hugging Face pipeline is a great way to use model for inference.You can use simiple API to dedicate serveral tasks. Hugging Face __"pipeline()"__ is like Swiss Army Knife for AI tasks. After authentication, you get access to a huge collection of pre-trained models that handle different tasks with just one line of code
+
+## What is HuggingFace Transformers?
+HuggingFace Transformers is a python library that provides pre-trained model, easy-to-use piipelines, training tools, and model architechture. 
+
+Hugging Face is not just a storage platform (like github), it's comprehensive AI/ML platform. When you use transformers library, it will downloads the model to your running maching, and load into your RAM/GPU, and do the inference. 
 
 ## Why HuggingFace needs API key for authorization?
 Even though this platform is open-source, but it doesn't mean unlimitted access. And some of the model is huge, with ID limit, the download bandwidth (maximum rate of data transfer) costs will the crash of servers. 
@@ -81,4 +91,4 @@ Usually a "Model" release with three files,
 
 The model can not function without it own specific tokenizer.
 
-## What
+## 

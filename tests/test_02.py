@@ -1,12 +1,25 @@
-'''
-Now use everything you've learned from Week 2 to build a full prototype for the technical question/answerer you built in Week 1 Exercise.
+"""
+This is a programm with user interface, with usage of different model.
+You are also use audio and image output functionaliy.
+"""
 
-This should include a Gradio UI, streaming, use of the system prompt to add expertise, and the ability to switch between models. Bonus points if you can demonstrate use of a tool!
+# This should include a Gradio UI, streaming, use of the system prompt to add expertise, and the ability to switch between models. 
+# 
+# Bonus points if you can demonstrate use of a tool!
+# 
+# If you feel bold, see if you can add audio input so you can talk to it, and have it respond with audio.
 
-If you feel bold, see if you can add audio input so you can talk to it, and have it respond with audio. ChatGPT or Claude can help you, or email me if you have questions.
 
-I will publish a full solution here soon - unless someone beats me to it...
 
-There are so many commercial applications for this, from a language tutor, to a company onboarding solution, to a companion AI to a course (like this one!) I can't wait to see your results
-'''
+# Some packages doesn't exist in python3.13 on Apple Silicon, or Change conda environment
+import gradio as gr 
 
+# Logic
+def greet(name):
+    return "Hello " + name + "!"
+
+# Example code from Gradio Doc
+demo = gr.Interface(fn=greet, inputs="textbox", outputs="textbox")
+
+if __name__ == "__main__":
+    demo.launch()
