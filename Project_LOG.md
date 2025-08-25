@@ -91,4 +91,29 @@ Usually a "Model" release with three files,
 
 The model can not function without it own specific tokenizer.
 
+## What is Chinchilla Scaling Law?
+The Chinchilla Scaling Law establishes the optimal relationship between model size (number of parameters) and training data volume. 
+
+## LLM benchmark?
+It's the standardized test or dataset used to measure and compare the model performance. 
+
+e.g.
+
+1. Knowledge Tests - Check if the model knows facts (MMLU, TriviaQA)
+2. Reasoning Tests - Evaluate logical thinking (ARC, HellaSwag)
+3. Coding Tests - Verify programming ability (HumanEval, MBPP)
+4. Math Tests - Test mathematical problem-solving (GSM8K, MATH)
+5. Language Understanding - Measure comprehension (GLUE, SuperGLUE)
+6. Safety Tests - Check for harmful outputs (TruthfulQA, BBQ)
+
+Also, there're 6 hard-level benchamark to test a LLM. (e.g. GPQA, BBHard, Math LV5, IFEval.. ). ALl can be found in Hugging Face leaderboard.
+
+## What is HuggingFace Depoly's Inferrence Endpoints?
+Hugging Face Inference Endpoints is a managed service that lets you deploy models as production-ready APIs with just a few clicks. 
+
+Think of it as "your model as a service" without setting up your own server, managing GPU, etc. You can dedicate REST API endpoint for your model. 
+
+The paying fee is NOT directly pay to Cloud Provider. 
+
 ## 
+
