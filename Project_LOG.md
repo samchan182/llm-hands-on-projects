@@ -115,5 +115,10 @@ Think of it as "your model as a service" without setting up your own server, man
 
 The paying fee is NOT directly pay to Cloud Provider. 
 
+## What is RAG?
+Retrieval Augmented Generation. 
+
+The model does NOT have the latest data, use RAG pipeline (Retrieval System) grab the up-to-date info in database, and post it into your prompt to LLM behind. 
+
 ## 
 
