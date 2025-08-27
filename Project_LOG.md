@@ -120,5 +120,32 @@ Retrieval Augmented Generation.
 
 The model does NOT have the latest data, use RAG pipeline (Retrieval System) grab the up-to-date info in database, and post it into your prompt to LLM behind. 
 
-## 
+The process:
+
+The vector database is knowledge database, RAG uses an encoder (embedding model) to map all your documents into vectors. 
+
+The user query will be encoded into query vectors, At query time, only the most relevant chunks are retrieved and passed to the LLM. This way the model has access to potentially millions of documents without exceeding the context limit. 
+
+So the “augmenting” behind the scenes solves two problems:
+
+1. Context window bottleneck
+2. Semantic search accuracy
+
+## What's difference between Auto-Regressive and Auto-Encoding LLMs?
+Autoregressive: "What comes next?" - Built for generation, processes sequentially (ChatGPT, Claude)
+
+Autoencoding: "What fits here?" - Built for understanding, processes holistically (Google Bert)
+
+When in encoding llms, the vectors has thousands of direction. 
+
+## Relationship between LangChain and RAG?
+RAG is a architectural pattern, for argmenting LLMs with external knowledge.
+
+Langchina is a tool (library), to help implement RAG (or many other LLMs patterns)
+
+## In what case you need RAG?
+1. Knowledge is too large. Cannot fit all documents into the LLM's content windows
+2. Knowledge changes often.
+3. Privacy concern. You don't want to fine-tune an LLM on sensitive company data
+4. Domain specific. RAG ensures answers are grounded in your docs, not model guesses, in some cases like customer support, law, finance. 
 
