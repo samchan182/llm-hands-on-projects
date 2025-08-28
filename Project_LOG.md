@@ -149,3 +149,9 @@ Langchina is a tool (library), to help implement RAG (or many other LLMs pattern
 3. Privacy concern. You don't want to fine-tune an LLM on sensitive company data
 4. Domain specific. RAG ensures answers are grounded in your docs, not model guesses, in some cases like customer support, law, finance. 
 
+## What is the callback in RAG?
+A callback is a function or hook to execute automatically during the retrieve. 
+
+It let you track, log, or modify what happened inside the RAG process without rewriting the whole pipeline. 
+
+## 
