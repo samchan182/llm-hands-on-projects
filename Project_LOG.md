@@ -10,6 +10,9 @@ Comment is for developer<br>
 Docstrings is for user of this code/function <br>
 Never use __(''')__, it will create unnecessary memory
 
+PEP 257 is the baseline standand for Python docstrings, base convention.
+https://peps.python.org/pep-0257/ 
+
 ## Will Python code change by environment?
 No! python code does not change the code based on environment. Different environment means the <u>availablility of packages</u> changes.<br>
 The only difference is the package installation. 
@@ -149,9 +152,18 @@ Langchina is a tool (library), to help implement RAG (or many other LLMs pattern
 3. Privacy concern. You don't want to fine-tune an LLM on sensitive company data
 4. Domain specific. RAG ensures answers are grounded in your docs, not model guesses, in some cases like customer support, law, finance. 
 
+## What is Chroma?
+It's a open-source vector database often use in RAG.
+
+It stores data as embeddings, support similarity search, lightweight and easy to run locally. 
+
 ## What is the callback in RAG?
 A callback is a function or hook to execute automatically during the retrieve. 
 
 It let you track, log, or modify what happened inside the RAG process without rewriting the whole pipeline. 
 
-## 
+## What is fine-tuning?
+Fine-tuning means to adjust the pre-trained LLM on new data, to fit specific problem
+
+## Why dataset is so important in doing this training? like Kaggle, HuggingFace dataset
+

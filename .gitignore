@@ -1,2 +1,3 @@
 # ignore API passport
 .env
+.DS_Store
