@@ -19,25 +19,31 @@ from openai import OpenAI # OpenAI publish python package on PyPl, can install b
 
 MODEL_GPT = "gpt-4o-mini"
 
+# The private key
+load_dotenv() 
+
 # Client builds a POST request, sends to OpenAI API, handles HTTP calls, with authentication
-load_dotenv() # The private key
+# The Python wrapper for POST request, to OpenAI server HTTP endpoints https://api.openai.com/v1/....
 client = OpenAI()
 
-# The Chat Completions API format
+# The Chat Completions API format, Python lists of dictionaries
 messages = [
     {"role": "user", "content": "What is bond in financial investment?"}
 ]
 
-# It uses OpenAI python API documentation, stardard format of streaming responses
+# OpenAI REST API library with steam content
 stream = client.chat.completions.create(
     model = MODEL_GPT,
     messages = messages,
     stream = True # They will sent back chunks of token 
+    # The API does Server-Sent Events (SSE) over HTTP, not return big JSON, instead of delta ojbects
 )
 
 for event in stream:
-    content = event.choices[0].delta.content
+    content = event.choices[0].delta.content # From "steam = True", the incremental delta object
     if content:
-        print(content, end='', flush=True)
+        print(content, end='', flush=True) # End (next line) & Flush means content appear live
+
+
 
 

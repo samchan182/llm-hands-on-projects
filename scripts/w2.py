@@ -1,12 +1,8 @@
-# imports
-
 import os
 import json
 from dotenv import load_dotenv
 from openai import OpenAI
 import gradio as gr
-
-# Initialization
 
 load_dotenv(override=True)
 
@@ -19,30 +15,9 @@ else:
 MODEL = "gpt-4o-mini"
 openai = OpenAI()
 
-# As an alternative, if you'd like to use Ollama instead of OpenAI
-# Check that Ollama is running for you locally (see week1/day2 exercise) then uncomment these next 2 lines
-# MODEL = "llama3.2"
-# openai = OpenAI(base_url='http://localhost:11434/v1', api_key='ollama')
-
-
 system_message = "You are a helpful assistant for an Airline called FlightAI. "
 system_message += "Give short, courteous answers, no more than 1 sentence. "
 system_message += "Always be accurate. If you don't know the answer, say so."
-
-
-# This function looks rather simpler than the one from my video, because we're taking advantage of the latest Gradio updates
-def chat(message, history):
-    messages = [{"role": "system", "content": system_message}] + history + [{"role": "user", "content": message}]
-    response = openai.chat.completions.create(model=MODEL, messages=messages)
-    return response.choices[0].message.content
-
-gr.ChatInterface(fn=chat, type="messages").launch()
-
-
-'''
-Make the tool by LLM
-'''
-# Let's start by making a useful function
 
 ticket_prices = {"london": "$799", "paris": "$899", "tokyo": "$1400", "berlin": "$499"}
 
@@ -51,9 +26,6 @@ def get_ticket_price(destination_city):
     city = destination_city.lower()
     return ticket_prices.get(city, "Unknown")
 
-get_ticket_price("Berlin") # this is the tool we are creating
-
-# There's a particular dictionary structure that's required to describe our function:
 price_function = {
     "name": "get_ticket_price",
     "description": "Get the price of a return ticket to the destination city. Call this whenever you need to know the ticket price, for example when a customer asks 'How much is a ticket to this city'",
@@ -68,36 +40,31 @@ price_function = {
         "required": ["destination_city"],
         "additionalProperties": False
     }
-} # the description section is giving to LLM
+}
 
-# And this is included in a list of tools:
 tools = [{"type": "function", "function": price_function}]
 
-'''
-Tool by OpenAI
-'''
 def chat(message, history):
     messages = [{"role": "system", "content": system_message}] + history + [{"role": "user", "content": message}]
-    response = openai.chat.completions.create(model=MODEL, messages=messages, tools=tools) # we pass the tool
+    response = openai.chat.completions.create(model=MODEL, messages=messages, tools=tools)
 
-    if response.choices[0].finish_reason=="tool_calls": # call one of your tools
+    if response.choices[0].finish_reason=="tool_calls":
         message = response.choices[0].message
-        response, city = handle_tool_call(message) # unpack the message from GPT
+        response, city = handle_tool_call(message)
         messages.append(message)
-        messages.append(response) # we tell GPT it's tool result
+        messages.append(response)
         response = openai.chat.completions.create(model=MODEL, messages=messages)
     
     return response.choices[0].message.content
 
-# We have to write that function handle_tool_call:
 def handle_tool_call(message):
-    tool_call = message.tool_calls[0] # unpack which tool you want to call
+    tool_call = message.tool_calls[0]
     arguments = json.loads(tool_call.function.arguments)
     city = arguments.get('destination_city')
-    price = get_ticket_price(city) # call the ticket function
+    price = get_ticket_price(city)
     response = {
         "role": "tool",
-        "content": json.dumps({"destination_city": city,"price": price}), # our tool is being called to show price
+        "content": json.dumps({"destination_city": city,"price": price}),
         "tool_call_id": tool_call.id
     }
     return response, city

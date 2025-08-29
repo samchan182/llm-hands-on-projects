@@ -37,6 +37,11 @@ Ollama Applicaition is like put your coffee machine into active mode (turn on ap
 
 Your python code is like the process / steps of making coffee. To do the specific jobs for you. Ollama is a server running behind, it's the client-server agritecture.
 
+# How to easily run LLMs locally by CLI?
+Use Ollama application, here is the doc link.
+
+https://www.hostinger.com/tutorials/ollama-cli-tutorial 
+
 ## Why token is so important in LLM?
 The model cannot see the word as human being. Each sentence need to convert into series of "TOEKN", and convert into numerical representation, to predict the next "word".
 
@@ -165,5 +170,12 @@ It let you track, log, or modify what happened inside the RAG process without re
 ## What is fine-tuning?
 Fine-tuning means to adjust the pre-trained LLM on new data, to fit specific problem
 
-## Why dataset is so important in doing this training? like Kaggle, HuggingFace dataset
+## 5 steps to solve business question by LLMs?
+1. Understand.
+2. Prepare.
+3. Select.
+4. Customize.
+5. Productionize.
+
+
 
