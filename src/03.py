@@ -1,5 +1,6 @@
 """
-This program is ...
+Summary:
+
 """
 
 # I downloaded some Denver City Council meeting minutes and selected a portion of the meeting for us to transcribe. You can download it here:

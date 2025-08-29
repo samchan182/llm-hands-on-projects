@@ -14,8 +14,8 @@ Behaviors:
     - User can generate an image
 
 Reference:
-    https://github.com/openai/openai-python 
-    https://www.gradio.app/docs/gradio/chatinterface 
+    OpenAI API Doc, text generation. (https://platform.openai.com/docs/guides/text)
+    Gradio Doc, chatinterface. (https://www.gradio.app/docs/gradio/chatinterface)
 """
 
 # Import
@@ -26,7 +26,7 @@ from openai import OpenAI
 
 # Enable to get key with further debug
 load_dotenv(override=True) # replace existing one, if os.environ already set
-openai_api_key = os.getenv("OPENAI-API-KEY") # Look up the key in process's level
+openai_api_key = os.getenv("OPENAI_API_KEY") # Look up the key in process's level
 
 client = OpenAI()
 MODEL = "gpt-4o-mini"
@@ -48,7 +48,7 @@ def chat(message, history):
         model = MODEL,
         messages = messages,
     )
-    return stream.choices[0].message.content
+    return stream.choices[0].message.content 
 
 # "fn" combined with the response of the chatbot based on the user input and chat history
 gr.ChatInterface(fn=chat, type = "messages").launch()

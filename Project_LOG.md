@@ -177,5 +177,8 @@ Fine-tuning means to adjust the pre-trained LLM on new data, to fit specific pro
 4. Customize.
 5. Productionize.
 
+## Is the linear regression ML model is to predict the price?
+random forest?
+
 
 

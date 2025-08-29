@@ -1,5 +1,7 @@
 """
-This is application of knowledge worker, to work on your information to boost your productivity.
+Summary:
+    This module is to create the RAG solutions with LangChain library
+    
 """
 # We ceate advanced RAG solutions with LangChain
 #
