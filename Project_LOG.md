@@ -177,8 +177,28 @@ Fine-tuning means to adjust the pre-trained LLM on new data, to fit specific pro
 4. Customize.
 5. Productionize.
 
-## Is the linear regression ML model is to predict the price?
-random forest?
+## What is LoRA?
+Low-rank adaptation in LLMs.
 
+The problem like Llama 3.1 model with 8B weight, if you want to train the model, there will be need to 32 GB RAM, Too much to optimize.
 
+1. The first step of LoRA is to freeze the weight. We're not going to optimize due to massive amount. 
+2. TO pick some layers to target, which called "Target Layers"
+3. Create new "adaptor" metric with lower dimension, fewer parameters. Which's called "lower rank adaptor"
+4. Apply those adaptor, into Target Layers, to train
 
+## What is QLoRA?
+Quantization, in the Q of QLoRA.
+
+Same adapters but base loaded in 4-bit quantization to fit bigger models in limited VRAM, retaining quality.
+
+It's not about layers, it's about the bits.
+
+# What's relationship between LoRA & Fine-tuning?
+Full fine-tuning updates every weight up to billions, needs huge memory and computing power. Both methos, LoRA & QLoRA are aiming to solve those problems.
+
+If the model already fits but full fine‑tune is too costly → LoRA.
+
+If the model does not fit in normal precision → QLoRA (or pick a smaller model).
+
+## 
