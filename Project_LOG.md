@@ -13,6 +13,13 @@ Never use __(''')__, it will create unnecessary memory
 PEP 257 is the baseline standand for Python docstrings, base convention.
 https://peps.python.org/pep-0257/ 
 
+## Difference between Library and Package?
+Package: A directly or folder contains Python module.
+
+Library: A collection of code provides functionality.
+
+When you need to install, it's library (pip install transformers), when you need to import (import transformers), it's package. 
+
 ## Will Python code change by environment?
 No! python code does not change the code based on environment. Different environment means the <u>availablility of packages</u> changes.<br>
 The only difference is the package installation. 
@@ -84,7 +91,13 @@ Hugging Face pipeline is a great way to use model for inference.You can use simi
 ## What is HuggingFace Transformers?
 HuggingFace Transformers is a python library that provides pre-trained model, easy-to-use piipelines, training tools, and model architechture. 
 
-Hugging Face is not just a storage platform (like github), it's comprehensive AI/ML platform. When you use transformers library, it will downloads the model to your running maching, and load into your RAM/GPU, and do the inference. 
+Hugging Face is not just a storage platform (like github), it's comprehensive AI/ML platform. There'r so many ML model that is being provided, not only Transformers. When you use transformers library, it will downloads the model to your running maching, and load into your RAM/GPU, and do the inference. 
+
+1. Transformers - Main library for pre-trained models (what you're learning)
+2. Datasets - Loading and processing datasets
+3. Tokenizers - Fast tokenization
+4. Diffusers - Image generation models (Stable Diffusion, etc.)
+5. Accelerate - Multi-GPU training optimization
 
 ## Why HuggingFace needs API key for authorization?
 Even though this platform is open-source, but it doesn't mean unlimitted access. And some of the model is huge, with ID limit, the download bandwidth (maximum rate of data transfer) costs will the crash of servers. 
